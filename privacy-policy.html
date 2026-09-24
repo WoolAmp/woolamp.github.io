@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="WoolAmp Privacy Policy: local media, optional online services, licensing, retention, deletion, security, and support.">
+<meta name="color-scheme" content="dark">
+<title>WoolAmp Privacy Policy</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><a class="brand" href="index.html"><span class="brand-mark">W</span>oolAmp</a><nav aria-label="Primary"><a href="index.html">Home</a><a href="privacy-policy.html">Privacy</a><a href="support.html">Support</a></nav></div></header>
+<main class="policy">
+<div class="notice">This page contains no analytics, advertising, cookies, tracking scripts, or external assets.</div>
+<h1>WoolAmp Privacy Policy</h1>
+<p><strong>Effective date:</strong> September 24, 2026</p>
+<p>WoolAmp is an Android music player. This Privacy Policy explains what information WoolAmp processes, when information leaves your device, and the choices available to you.</p>
+<p>WoolAmp is designed as a local-first music player. Most playback, library, DSP, equalizer, headphone-correction, preset, skin, playlist, and preference processing happens on your Android device.</p>
+<h2>1. Local music and media access</h2>
+<p>WoolAmp asks Android for access to audio media so it can discover and play music available to the app. It may read information associated with those files, including title, artist, album, duration, file or content identifiers, embedded artwork, and other music metadata.</p>
+<p>Reading or playing a local audio file does not mean WoolAmp uploads that file. WoolAmp does not upload the audio content of your local music files to its entitlement service or to metadata/lyrics providers as part of the features described below.</p>
+<h2>2. On-device audio processing</h2>
+<p>WoolAmp's real-time playback and DSP processing—including equalization, headphone correction, crossfeed, spatial processing, ReplayGain-related local analysis, and other audio processing—runs on your device.</p>
+<p>Local ReplayGain/audio analysis remains available even when optional online metadata enrichment is disabled.</p>
+<h2>3. Online Metadata &amp; Lyrics — optional and off by default</h2>
+<p><strong>Online Metadata &amp; Lyrics is OFF by default.</strong> WoolAmp does not perform unattended online enrichment of your local library unless you affirmatively enable this feature in <strong>Settings → Privacy &amp; Network Services</strong>.</p>
+<p>Before enabling it, WoolAmp explains that online services may receive information from your music library. If you enable the feature, WoolAmp may send information needed for a lookup, such as:</p>
+<ul>
+<li>artist name;</li>
+<li>track title;</li>
+<li>album title;</li>
+<li>track duration;</li>
+<li>ISRC;</li>
+<li>MusicBrainz recording, release, or release-group identifiers; and</li>
+<li>similar music identifiers already associated with the track.</li>
+</ul>
+<p>Depending on the lookup and the release configuration, WoolAmp can use services including:</p>
+<ul>
+<li>LRCLIB for lyrics;</li>
+<li>Wikidata and Wikimedia Commons for structured music/artist information and eligible artwork;</li>
+<li>AcousticBrainz for recording-related audio-feature metadata; and</li>
+<li>MusicBrainz and Cover Art Archive when hosted MusicBrainz enrichment is enabled for that release.</li>
+</ul>
+<p>These providers receive ordinary connection information such as your IP address when your device connects to them. Their handling of information is governed by their own policies.</p>
+<p>Your audio files are not uploaded for these enrichment lookups.</p>
+<p>You can turn Online Metadata &amp; Lyrics off at any time. Turning it off cancels queued automatic online enrichment work but does not automatically delete metadata or artwork already downloaded. WoolAmp also provides a <strong>Clear Cached Online Data</strong> action for provider-response and downloaded artist-presentation caches.</p>
+<h2>4. Internet Radio</h2>
+<p>Internet Radio is an explicit network feature. WoolAmp can contact the Radio Browser directory when you browse or search for stations. Search text, filters, and ordinary network information may therefore be sent to that directory.</p>
+<p>When you choose a station, your device connects directly to the selected station or its streaming/CDN provider. That provider can receive normal connection information such as your IP address, user-agent information, and stream requests. WoolAmp does not operate those independent stations.</p>
+<h2>5. Music Locker and user-configured servers</h2>
+<p>WoolAmp can connect to supported self-hosted music servers that you configure. The current beta implementation includes an OpenSubsonic-compatible Music Locker connector.</p>
+<p>Release builds require <strong>HTTPS</strong> Music Locker server URLs. WoolAmp does not support insecure HTTP Music Locker connections in the production release.</p>
+<p>When you configure and use a Music Locker server, WoolAmp sends the credentials and library/media requests required to communicate with that server. Music Locker credentials are stored locally using Android encrypted storage and are used for the server you selected; they are not sent to WoolAmp's entitlement service.</p>
+<p>Music Locker media is streamed or cached directly between your device and the server/media endpoint you configured.</p>
+<h2>6. Google Play Billing and lifetime unlock</h2>
+<p>WoolAmp offers a 15-day full-feature trial and a one-time lifetime unlock through Google Play.</p>
+<p>Google Play is the purchase and localized-price authority. WoolAmp does not receive or store your payment-card number, bank information, or other payment-instrument credentials.</p>
+<p>For purchase verification, the Android client receives a Google Play purchase token and sends it to WoolAmp's entitlement service over HTTPS. The service processes the raw token transiently to verify the purchase with Google Play and, when required, acknowledge it with Google Play. <strong>The raw purchase token is not persisted in WoolAmp's entitlement database.</strong></p>
+<p>WoolAmp stores a cryptographic SHA-256-derived hash of the purchase token when persistent purchase identity is required for the lifetime entitlement and device allowance.</p>
+<h2>7. Play Integrity and pseudonymous licensing identifiers</h2>
+<p>WoolAmp uses Google Play Integrity and a Railway-hosted entitlement service to protect the trial and lifetime unlock from simple reset/replay abuse.</p>
+<p>The Android client creates a pseudonymous app-scoped device-binding value derived locally from Android/application information. The raw Android ID used in that derivation is not sent to the WoolAmp entitlement service by the current release implementation.</p>
+<p>The entitlement service can receive information such as:</p>
+<ul>
+<li>the pseudonymous device-binding hash;</li>
+<li>an Android Keystore public key and public-key hash;</li>
+<li>package name and app version code;</li>
+<li>cryptographic challenge/nonce/signature values;</li>
+<li>a Google Play Integrity token; and</li>
+<li>for purchase verification, the Google Play purchase token and product identifier.</li>
+</ul>
+<p>A P-256 private key used to prove possession remains in Android Keystore and is not exported by WoolAmp. WoolAmp's server signs accepted entitlement grants with an Ed25519 private key that does not ship in the app.</p>
+<p>Play Integrity tokens are processed transiently and are not stored in WoolAmp's entitlement SQLite database.</p>
+<h2>8. Licensing ID and privacy requests</h2>
+<p>WoolAmp exposes a pseudonymous <strong>Licensing ID</strong> in <strong>Settings → Privacy &amp; Network Services → Licensing &amp; Privacy</strong>. It begins with <code>WA1-</code> and lets support locate the corresponding server-side entitlement/device record without asking you for Android ID, IMEI, MAC address, device serial number, raw purchase token, or private cryptographic material.</p>
+<p>To request deletion of WoolAmp-controlled entitlement records, contact <a href="mailto:woolamp@proton.me">woolamp@proton.me</a> and provide your Licensing ID.</p>
+<p>A privacy deletion removes the live WoolAmp trial row, current device public-key records, the requesting device's purchase association, and any purchase-token-hash record that is no longer associated with another authorized device.</p>
+<p>If WoolAmp has already issued a free trial to that pseudonymous device binding, WoolAmp retains only the minimum trial-eligibility record needed to prevent a deletion/reset from creating another free trial: the pseudonymous device-binding hash and the original trial start/expiry dates. This record is retained for the legitimate purpose of enforcing the one-trial policy and is not used for advertising or behavioral profiling.</p>
+<p>Deleting WoolAmp-controlled entitlement data does not cancel or erase a Google Play purchase. Google remains the purchase authority. If you later use <strong>Restore Purchase</strong>, a legitimate Play purchase can be reverified and WoolAmp can recreate the necessary entitlement association.</p>
+<h2>9. Entitlement-service retention</h2>
+<p>WoolAmp's entitlement service follows these data-minimization rules:</p>
+<ul>
+<li><strong>Challenges:</strong> random, short-lived challenges are deleted after successful consumption; expired challenges are automatically purged.</li>
+<li><strong>Raw purchase tokens:</strong> processed transiently for Google verification/acknowledgement and not persisted.</li>
+<li><strong>Play Integrity tokens:</strong> processed transiently and not persisted in the entitlement database.</li>
+<li><strong>Trial state:</strong> retained as needed to administer the fixed 15-day trial and prevent repeated trials; after a privacy deletion only the minimal trial-eligibility record described above is retained if necessary.</li>
+<li><strong>Device public keys:</strong> the current public key is retained as needed for device proof; superseded public keys are removed when a binding rotates to a new key.</li>
+<li><strong>Purchase-token hashes and purchase/device associations:</strong> retained while needed to administer a lifetime purchase and active-device allowance; orphaned purchase hashes are removed during a privacy deletion.</li>
+</ul>
+<h2>10. Hosting logs and backups</h2>
+<p>WoolAmp's entitlement service is hosted on Railway. Railway infrastructure can process operational connection/security log information such as source IP address, user agent, request path/method, status, timing, and byte counts according to Railway's service configuration and retention practices.</p>
+<p>WoolAmp does not intentionally write source IP addresses or request bodies into its entitlement SQLite database.</p>
+<p>If scheduled Railway Volume backups are enabled, a record removed from the live SQLite database may remain in an existing backup snapshot until that backup expires under the configured backup schedule.</p>
+<h2>11. Local application data</h2>
+<p>Depending on the features you use, WoolAmp can store app-private information including:</p>
+<ul>
+<li>local music-library metadata;</li>
+<li>playlists, favorites, play counts, exclusions/tombstones, and library state;</li>
+<li>DSP, equalizer, playback, output, and application settings;</li>
+<li>presets and headphone-profile selections;</li>
+<li>skins and skin-library settings;</li>
+<li>lyrics and enriched metadata/artwork that have been downloaded;</li>
+<li>Music Locker server configuration and encrypted credentials;</li>
+<li>signed entitlement grants and Android Keystore key material; and</li>
+<li>a local crash report if WoolAmp terminates unexpectedly.</li>
+</ul>
+<p>Most persistent app-private data remains until WoolAmp removes/replaces it, you use a relevant removal/reset action, you clear WoolAmp's app data, or you uninstall the app. Android-managed cache data can be cleared separately.</p>
+<p>Clearing WoolAmp's app data or uninstalling WoolAmp does not itself delete your original music files merely because WoolAmp previously indexed them.</p>
+<h2>12. Crash information, analytics, and advertising</h2>
+<p>The current WoolAmp beta does <strong>not</strong> contain an advertising SDK or remote behavioral analytics SDK.</p>
+<p>WoolAmp does <strong>not</strong> automatically upload its local crash report to WoolAmp, Railway, or a third-party crash-reporting service. A local crash report can contain technical exception/stack information and remains in WoolAmp's private app storage unless you deliberately provide diagnostic information for support.</p>
+<p>Release builds avoid writing the full local crash stack trace to Android Logcat.</p>
+<h2>13. Security</h2>
+<p>WoolAmp uses HTTPS for its entitlement service and release Music Locker connections, Android application-private storage, Android Keystore for device proof, and encrypted local storage for supported Music Locker credentials.</p>
+<p>No internet service or storage system can be guaranteed perfectly secure, but WoolAmp is designed to avoid collecting information that is unnecessary for the feature being used.</p>
+<h2>14. Third-party services</h2>
+<p>Features you choose to use can communicate with services operated by other organizations, including Google Play, Railway, metadata/lyrics/artwork providers, Radio Browser, internet radio stations/CDNs, and self-hosted servers you configure.</p>
+<p>Those services may process information under their own privacy policies and terms.</p>
+<h2>15. Children's privacy / target audience</h2>
+<p>WoolAmp is a general-purpose music player and does not use advertising or behavioral analytics. Target age groups are declared separately in Google Play. If a release includes child age groups in its target audience, WoolAmp will apply the additional legal and Google Play requirements that apply to that audience before distribution.</p>
+<h2>16. Changes to this policy</h2>
+<p>This policy may be updated when WoolAmp's features, service providers, or data practices change. Material changes will be reflected in the published policy and, where appropriate, in the app.</p>
+<h2>17. Contact</h2>
+<p><strong>App:</strong> WoolAmp</p>
+<p><strong>Privacy/support email:</strong> <a href="mailto:woolamp@proton.me">woolamp@proton.me</a></p>
+<p><strong>Support:</strong> <a href="https://woolamp.github.io/support.html">https://woolamp.github.io/support.html</a></p>
+</main>
+<footer><div class="footer-inner">WoolAmp · Privacy &amp; support: <a href="mailto:woolamp@proton.me">woolamp@proton.me</a></div></footer>
+</body>
+</html>

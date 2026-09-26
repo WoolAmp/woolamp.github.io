@@ -20,3 +20,26 @@
         width: 100%;
     }
 }
+
+
+/* WoolAmp header SVG branding */
+.brand-logo-link {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    line-height: 0;
+}
+
+.site-brand-logo {
+    display: block;
+    height: 42px;
+    width: auto;
+    max-width: 190px;
+}
+
+@media (max-width: 700px) {
+    .site-brand-logo {
+        height: 34px;
+        max-width: 150px;
+    }
+}
